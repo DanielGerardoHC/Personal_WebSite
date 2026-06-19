@@ -25,11 +25,11 @@ const cvUrl = "https://drive.google.com/file/d/1tUUd_vrl_cZ0LoMlFeEfVgkU-DboxvUx
         <span class="name-accent">Hernandez</span>
       </h1>
       <div class="hero-role animate-on-scroll animate-delay-2">
-        <span class="role-tag">Desarrollador Backend</span>
+        <span class="role-tag">Arquitecto de Convergencia IT/OT</span>
         <span class="cursor">|</span>
       </div>
       <p class="hero-desc animate-on-scroll animate-delay-3">
-        Estudiante de Ing. en Desarrollo de Software. Apasionado por crear soluciones robustas, APIs escalables y arquitecturas limpias.
+        Estudiante de Ing. en Desarrollo de Software. Apasionado por la convergencia entre tecnologías de la información y operación, creando puentes entre el mundo industrial y digital.
       </p>
       <div class="hero-actions animate-on-scroll animate-delay-4">
         <a href={cvUrl} target="_blank" class="btn btn-primary" rel="noopener noreferrer">
@@ -45,20 +45,7 @@ const cvUrl = "https://drive.google.com/file/d/1tUUd_vrl_cZ0LoMlFeEfVgkU-DboxvUx
 
     <div class="hero-visual animate-on-scroll animate-delay-2">
       <div class="photo-frame">
-        <img src="/images/img_me.png" alt="Daniel Hernandez — Desarrollador Backend" class="hero-photo" loading="eager" />
-        <div class="photo-ring"></div>
-      </div>
-      <div class="floating-badge badge-1">
-        <span class="badge-icon">⚡</span>
-        <span class="badge-text">.NET 8</span>
-      </div>
-      <div class="floating-badge badge-2">
-        <span class="badge-icon">🗄️</span>
-        <span class="badge-text">SQL</span>
-      </div>
-      <div class="floating-badge badge-3">
-        <span class="badge-icon">🔧</span>
-        <span class="badge-text">REST API</span>
+        <img src="/images/img_me.png" alt="Daniel Hernandez — Arquitecto de Convergencia IT/OT" class="hero-photo" loading="eager" />
       </div>
     </div>
   </div>
@@ -206,73 +193,29 @@ const cvUrl = "https://drive.google.com/file/d/1tUUd_vrl_cZ0LoMlFeEfVgkU-DboxvUx
 
   .photo-frame {
     position: relative;
-    width: 340px;
-    height: 340px;
+    width: 380px;
+    max-width: 100%;
   }
 
   .hero-photo {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 4px solid white;
-    box-shadow: var(--shadow-xl);
+    height: auto;
+    object-fit: contain;
+    border-radius: 0;
+    border: none;
+    filter: drop-shadow(0 20px 40px rgba(26, 26, 26, 0.18));
     position: relative;
     z-index: 2;
+    transition: transform var(--transition-base);
   }
 
-  .photo-ring {
-    position: absolute;
-    inset: -12px;
-    border-radius: 50%;
-    border: 2px dashed var(--clay-light);
-    opacity: 0.5;
-    animation: spin 30s linear infinite;
+  .hero-photo:hover {
+    transform: scale(1.03);
   }
 
-  @keyframes spin {
-    to { transform: rotate(360deg); }
-  }
 
-  /* --- Floating Badges --- */
-  .floating-badge {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    padding: 0.5rem 1rem;
-    background: white;
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-md);
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-    font-weight: 600;
-    color: var(--ink);
-    z-index: 3;
-    border: 1px solid var(--sand);
-  }
 
-  .badge-icon {
-    font-size: 1rem;
-  }
 
-  .badge-1 {
-    top: 10%;
-    right: -5%;
-    animation: float 5s ease-in-out infinite;
-  }
-
-  .badge-2 {
-    bottom: 15%;
-    left: -8%;
-    animation: float 6s ease-in-out infinite 1s;
-  }
-
-  .badge-3 {
-    bottom: 5%;
-    right: 5%;
-    animation: float 7s ease-in-out infinite 0.5s;
-  }
 
   /* --- Scroll Hint --- */
   .hero-scroll-hint {
@@ -347,8 +290,7 @@ const cvUrl = "https://drive.google.com/file/d/1tUUd_vrl_cZ0LoMlFeEfVgkU-DboxvUx
     }
 
     .photo-frame {
-      width: 260px;
-      height: 260px;
+      width: 280px;
     }
 
     .floating-badge {
@@ -366,8 +308,7 @@ const cvUrl = "https://drive.google.com/file/d/1tUUd_vrl_cZ0LoMlFeEfVgkU-DboxvUx
     }
 
     .photo-frame {
-      width: 200px;
-      height: 200px;
+      width: 220px;
     }
   }
 </style>

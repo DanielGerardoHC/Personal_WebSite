@@ -4,7 +4,10 @@ import { projects } from "../data/projects";
 const currentYear = new Date().getFullYear();
 
 const socialLinks = [
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/gerardo-calderon-10b7492b8/" },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/gerardo-calderon-10b7492b8/",
+  },
   { label: "GitHub", href: "https://github.com/DanielGerardoHC" },
   { label: "LeetCode", href: "https://leetcode.com/u/DgerardoHC/" },
 ];
@@ -17,10 +20,11 @@ const socialLinks = [
       <div class="footer-brand">
         <a href="#" class="footer-logo">
           <span class="brand-dot"></span>
-          Daniel<span class="brand-accent">HC</span>
+          Daniel<span class="brand-accent">Hernandez</span>
         </a>
         <p class="footer-tagline">
-          Desarrollador Backend enfocado en construir soluciones escalables y arquitecturas limpias.
+          Arquitecto de Convergencia IT/OT enfocado en conectar el mundo
+          industrial con soluciones de software modernas.
         </p>
       </div>
 
@@ -29,7 +33,7 @@ const socialLinks = [
         <h4 class="footer-heading">Navegación</h4>
         <ul class="footer-links">
           <li><a href="#about">Sobre mí</a></li>
-          <li><a href="#tech">Tecnologías</a></li>
+          <li><a href="#experience">Experiencia</a></li>
           <li><a href="#projects">Proyectos</a></li>
         </ul>
       </div>
@@ -38,11 +42,15 @@ const socialLinks = [
       <div class="footer-col">
         <h4 class="footer-heading">Links</h4>
         <ul class="footer-links">
-          {socialLinks.map((link) => (
-            <li>
-              <a href={link.href} target="_blank" rel="noopener noreferrer">{link.label}</a>
-            </li>
-          ))}
+          {
+            socialLinks.map((link) => (
+              <li>
+                <a href={link.href} target="_blank" rel="noopener noreferrer">
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
         </ul>
       </div>
 
@@ -50,11 +58,19 @@ const socialLinks = [
       <div class="footer-col">
         <h4 class="footer-heading">Proyectos</h4>
         <ul class="footer-links">
-          {projects.map((p) => (
-            <li>
-              <a href={p.repoUrl || "#"} target="_blank" rel="noopener noreferrer">{p.title}</a>
-            </li>
-          ))}
+          {
+            projects.map((p) => (
+              <li>
+                <a
+                  href={p.repoUrl || "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {p.title}
+                </a>
+              </li>
+            ))
+          }
         </ul>
       </div>
     </div>
@@ -62,7 +78,7 @@ const socialLinks = [
     <hr class="divider" />
 
     <div class="footer-bottom">
-      <p class="footer-copy">© {currentYear} Daniel Hernandez. Hecho con <span class="heart">♥</span> y Astro.</p>
+      <p class="footer-copy">© {currentYear} Daniel Hernandez.</p>
     </div>
   </div>
 </footer>

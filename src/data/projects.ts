@@ -32,20 +32,17 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    id: "task-manager-api",
-    title: "TaskManager Service API",
+    id: "sentinel-os",
+    title: "SentinelOS",
     description:
-      "API RESTful para operaciones CRUD sobre SQL Server, diseñada como backend del Task Manager en arquitectura cliente-servidor.",
+      "Firewall de Próxima Generación (NGFW) basado en zonas, construido sobre Debian 13 y escrito en Go para ofrecer control perimetral avanzado con procesamiento concurrente de alta velocidad.",
     longDescription:
-      "Una API de tipo RESTful que se encarga de manejar las operaciones CRUD a una base de datos SQL Server, con la finalidad de ser utilizada por una versión de Task Manager adaptada al patrón cliente-servidor. Desarrollada en .NET 8 con Entity Framework y documentada con Swagger.",
-    tags: [".NET 8", "Entity Framework", "SQL Server", "REST API", "Swagger"],
+      "SentinelOS es un NGFW diseñado para entornos de red críticos. Desarrollado sobre la arquitectura de Debian 13 y programado íntegramente en Go, aprovecha la concurrencia nativa del lenguaje para garantizar tiempos de respuesta mínimos en la inspección de tráfico. Integra Suricata IPS para detección y prevención de intrusiones en tiempo real, proporcionando seguridad perimetral, monitorización activa y gestión eficiente del tráfico de red.",
+    tags: ["Go", "Debian 13", "Suricata IPS", "NGFW", "Networking", "Linux"],
     images: [
-      "/images/TMSA-Tasks.png",
-      "/images/TMSA-Users.PNG",
-      "/images/TMSA-Schems.PNG",
     ],
-    repoUrl: "https://github.com/DanielGerardoHC/TaskManagerServiceAPI",
-    docsUrl: "https://github.com/DanielGerardoHC/TaskManagerServiceAPI",
+    repoUrl: "#",
+    docsUrl: "#",
     featured: true,
   },
   // ───────────────────────────────────────────

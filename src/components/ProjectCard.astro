@@ -8,6 +8,16 @@ interface Props {
 
 const { project, index } = Astro.props;
 const hasMultipleImages = project.images.length > 1;
+
+// Map tags to devicon classes
+const tagIconMap: Record<string, string> = {
+  ".NET 8": "devicon-dotnetcore-plain",
+  "SQLite": "devicon-sqlite-plain",
+  "C#": "devicon-csharp-plain",
+  "Go": "devicon-go-plain",
+  "Debian 13": "devicon-debian-plain",
+  "Linux": "devicon-linux-plain",
+};
 ---
 
 <article class={`project-card card animate-on-scroll animate-delay-${(index % 3) + 1}`} data-project-id={project.id}>
@@ -61,7 +71,10 @@ const hasMultipleImages = project.images.length > 1;
   <div class="project-content">
     <div class="project-tags">
       {project.tags.map((tag) => (
-        <span class="chip">{tag}</span>
+        <span class="chip">
+          {tagIconMap[tag] && <i class={`${tagIconMap[tag]} tag-icon`}></i>}
+          {tag}
+        </span>
       ))}
     </div>
 
@@ -242,6 +255,12 @@ const hasMultipleImages = project.images.length > 1;
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-xs);
+  }
+
+  .tag-icon {
+    font-size: 1rem;
+    color: var(--ink);
+    margin-right: 0.1rem;
   }
 
   .project-title {
