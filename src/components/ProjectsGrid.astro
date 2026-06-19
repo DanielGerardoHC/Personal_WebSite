@@ -1,0 +1,119 @@
+---
+import ProjectCard from "./ProjectCard.astro";
+import { projects } from "../data/projects";
+---
+
+<section class="projects section" id="projects">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <span class="section-label">Portafolio</span>
+      <h2 class="section-title">Proyectos destacados</h2>
+      <p class="section-description">
+        Proyectos desarrollados de manera autónoma para obtener conocimientos y experiencias prácticas en distintas tecnologías.
+      </p>
+    </div>
+
+    <div class="projects-grid">
+      {projects.map((project, index) => (
+        <ProjectCard project={project} index={index} />
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox-overlay" id="lightbox">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Cerrar">✕</button>
+  <img id="lightbox-img" src="" alt="Vista ampliada" />
+</div>
+
+<style>
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+  }
+
+  @media (max-width: 768px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  // Gallery Navigation
+  document.querySelectorAll('[data-gallery]').forEach((gallery) => {
+    const id = gallery.getAttribute('data-gallery');
+    const images = gallery.querySelectorAll('.gallery-image') as NodeListOf<HTMLElement>;
+    const dots = document.querySelector(`[data-gallery-dots="${id}"]`)?.querySelectorAll('.gallery-dot') as NodeListOf<HTMLElement> | undefined;
+    const counter = document.querySelector(`[data-current-slide="${id}"]`);
+    let currentIndex = 0;
+
+    function goToSlide(index: number) {
+      images[currentIndex]?.classList.remove('active');
+      dots?.[currentIndex]?.classList.remove('active');
+      currentIndex = (index + images.length) % images.length;
+      images[currentIndex]?.classList.add('active');
+      dots?.[currentIndex]?.classList.add('active');
+      if (counter) counter.textContent = String(currentIndex + 1);
+    }
+
+    // Arrow buttons
+    document.querySelector(`[data-gallery-btn="${id}-prev"]`)
+      ?.addEventListener('click', () => goToSlide(currentIndex - 1));
+    document.querySelector(`[data-gallery-btn="${id}-next"]`)
+      ?.addEventListener('click', () => goToSlide(currentIndex + 1));
+
+    // Dot buttons
+    dots?.forEach((dot, i) => {
+      dot.addEventListener('click', () => goToSlide(i));
+    });
+  });
+
+  // Lightbox
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
+  const lightboxClose = document.getElementById('lightbox-close');
+
+  // Open lightbox from expand button
+  document.querySelectorAll('[data-lightbox-trigger]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const id = btn.getAttribute('data-lightbox-trigger');
+      const activeImg = document.querySelector(`[data-gallery="${id}"] .gallery-image.active`) as HTMLImageElement;
+      if (activeImg && lightbox && lightboxImg) {
+        lightboxImg.src = activeImg.src;
+        lightboxImg.alt = activeImg.alt;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  });
+
+  // Open lightbox by clicking gallery image
+  document.querySelectorAll('.gallery-image').forEach((img) => {
+    img.addEventListener('click', () => {
+      const imgEl = img as HTMLImageElement;
+      if (lightbox && lightboxImg) {
+        lightboxImg.src = imgEl.src;
+        lightboxImg.alt = imgEl.alt;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  });
+
+  // Close lightbox
+  function closeLightbox() {
+    lightbox?.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  lightboxClose?.addEventListener('click', closeLightbox);
+  lightbox?.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+</script>

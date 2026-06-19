@@ -1,0 +1,373 @@
+---
+const cvUrl = "https://drive.google.com/file/d/1tUUd_vrl_cZ0LoMlFeEfVgkU-DboxvUx/view?usp=drive_link";
+---
+
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <!-- Organic decorative shapes -->
+    <svg class="hero-blob blob-1" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+      <path d="M305.3,373.7Q253.4,447.4,168.1,427.8Q82.8,408.2,59.5,304.1Q36.2,200,128.3,141.2Q220.4,82.4,310.2,91.2Q400,100,415.8,200Q431.6,300,305.3,373.7Z" fill="var(--sand)"/>
+    </svg>
+    <svg class="hero-blob blob-2" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+      <path d="M379.5,340.4Q322.8,380.8,268.2,397.5Q213.6,414.2,162.3,377.1Q111,340,99.5,270Q88,200,140.8,155.3Q193.6,110.6,264.8,83.3Q336,56,390.5,128Q445,200,379.5,340.4Z" fill="var(--sand-dark)" opacity="0.5"/>
+    </svg>
+    <div class="hero-grain"></div>
+  </div>
+
+  <div class="hero-content container">
+    <div class="hero-text">
+      <div class="hero-greeting animate-on-scroll">
+        <span class="greeting-line"></span>
+        <span class="greeting-text">Hola, soy</span>
+      </div>
+      <h1 class="hero-name animate-on-scroll animate-delay-1">
+        Daniel<br/>
+        <span class="name-accent">Hernandez</span>
+      </h1>
+      <div class="hero-role animate-on-scroll animate-delay-2">
+        <span class="role-tag">Desarrollador Backend</span>
+        <span class="cursor">|</span>
+      </div>
+      <p class="hero-desc animate-on-scroll animate-delay-3">
+        Estudiante de Ing. en Desarrollo de Software. Apasionado por crear soluciones robustas, APIs escalables y arquitecturas limpias.
+      </p>
+      <div class="hero-actions animate-on-scroll animate-delay-4">
+        <a href={cvUrl} target="_blank" class="btn btn-primary" rel="noopener noreferrer">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+          Descargar CV
+        </a>
+        <a href="#projects" class="btn btn-outline">
+          Ver Proyectos
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-visual animate-on-scroll animate-delay-2">
+      <div class="photo-frame">
+        <img src="/images/img_me.png" alt="Daniel Hernandez — Desarrollador Backend" class="hero-photo" loading="eager" />
+        <div class="photo-ring"></div>
+      </div>
+      <div class="floating-badge badge-1">
+        <span class="badge-icon">⚡</span>
+        <span class="badge-text">.NET 8</span>
+      </div>
+      <div class="floating-badge badge-2">
+        <span class="badge-icon">🗄️</span>
+        <span class="badge-text">SQL</span>
+      </div>
+      <div class="floating-badge badge-3">
+        <span class="badge-icon">🔧</span>
+        <span class="badge-text">REST API</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll-hint">
+    <span class="scroll-text">Scroll</span>
+    <div class="scroll-line">
+      <div class="scroll-dot"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: var(--nav-height);
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .hero-blob {
+    position: absolute;
+    opacity: 0.7;
+  }
+
+  .blob-1 {
+    width: 500px;
+    top: -10%;
+    right: -8%;
+    animation: float 8s ease-in-out infinite;
+  }
+
+  .blob-2 {
+    width: 400px;
+    bottom: -5%;
+    left: -5%;
+    animation: float 10s ease-in-out infinite reverse;
+  }
+
+  .hero-grain {
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 200px;
+  }
+
+  .hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3xl);
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-greeting {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+  }
+
+  .greeting-line {
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: var(--terracotta);
+  }
+
+  .greeting-text {
+    font-family: var(--font-mono);
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--terracotta);
+    letter-spacing: 0.05em;
+  }
+
+  .hero-name {
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    line-height: 1.05;
+    margin-bottom: var(--space-lg);
+    letter-spacing: -0.03em;
+  }
+
+  .name-accent {
+    color: var(--terracotta);
+    position: relative;
+  }
+
+  .hero-role {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-xl);
+  }
+
+  .role-tag {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--stone);
+    padding: 0.4rem 1rem;
+    background: var(--sand);
+    border-radius: var(--radius-full);
+    border: 1px solid var(--sand-dark);
+  }
+
+  .cursor {
+    font-weight: 300;
+    color: var(--terracotta);
+    animation: blink 1s infinite;
+  }
+
+  .hero-desc {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--stone);
+    margin-bottom: var(--space-xl);
+    max-width: 42ch;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+  }
+
+  /* --- Photo --- */
+  .hero-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .photo-frame {
+    position: relative;
+    width: 340px;
+    height: 340px;
+  }
+
+  .hero-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid white;
+    box-shadow: var(--shadow-xl);
+    position: relative;
+    z-index: 2;
+  }
+
+  .photo-ring {
+    position: absolute;
+    inset: -12px;
+    border-radius: 50%;
+    border: 2px dashed var(--clay-light);
+    opacity: 0.5;
+    animation: spin 30s linear infinite;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  /* --- Floating Badges --- */
+  .floating-badge {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: 0.5rem 1rem;
+    background: white;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--ink);
+    z-index: 3;
+    border: 1px solid var(--sand);
+  }
+
+  .badge-icon {
+    font-size: 1rem;
+  }
+
+  .badge-1 {
+    top: 10%;
+    right: -5%;
+    animation: float 5s ease-in-out infinite;
+  }
+
+  .badge-2 {
+    bottom: 15%;
+    left: -8%;
+    animation: float 6s ease-in-out infinite 1s;
+  }
+
+  .badge-3 {
+    bottom: 5%;
+    right: 5%;
+    animation: float 7s ease-in-out infinite 0.5s;
+  }
+
+  /* --- Scroll Hint --- */
+  .hero-scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .scroll-text {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--stone-light);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: var(--sand-dark);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scroll-dot {
+    width: 3px;
+    height: 10px;
+    background: var(--terracotta);
+    border-radius: var(--radius-full);
+    position: absolute;
+    left: -1px;
+    animation: scrollDown 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollDown {
+    0% { top: 0; opacity: 0; }
+    30% { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+  }
+
+  /* --- Responsive --- */
+  @media (max-width: 968px) {
+    .hero-content {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: var(--space-2xl);
+    }
+
+    .hero-text {
+      order: 2;
+    }
+
+    .hero-visual {
+      order: 1;
+    }
+
+    .hero-greeting {
+      justify-content: center;
+    }
+
+    .hero-desc {
+      margin: 0 auto var(--space-xl);
+    }
+
+    .hero-actions {
+      justify-content: center;
+    }
+
+    .photo-frame {
+      width: 260px;
+      height: 260px;
+    }
+
+    .floating-badge {
+      display: none;
+    }
+
+    .hero-scroll-hint {
+      display: none;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-name {
+      font-size: 2.5rem;
+    }
+
+    .photo-frame {
+      width: 200px;
+      height: 200px;
+    }
+  }
+</style>
