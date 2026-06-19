@@ -8,6 +8,7 @@ interface Props {
 
 const { project, index } = Astro.props;
 const hasMultipleImages = project.images.length > 1;
+const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
 
 // Map tags to devicon classes
 const tagIconMap: Record<string, string> = {
@@ -26,7 +27,7 @@ const tagIconMap: Record<string, string> = {
     <div class="gallery-viewport" data-gallery={project.id}>
       {project.images.map((img, i) => (
         <img
-          src={img}
+          src={`${base}${img}`}
           alt={`${project.title} — captura ${i + 1}`}
           class={`gallery-image ${i === 0 ? "active" : ""}`}
           data-index={i}
