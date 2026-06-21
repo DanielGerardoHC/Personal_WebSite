@@ -41,8 +41,9 @@ export const projects: Project[] = [
     tags: ["Go", "Debian 13", "Suricata IPS", "NGFW", "Networking", "Linux"],
     images: [
     ],
+    liveUrl: "https://sentinelos.sentinelapps.net/",
     repoUrl: "#",
-    docsUrl: "#",
+    docsUrl: "https://sentinelos.sentinelapps.net/",
     featured: true,
   },
   // ───────────────────────────────────────────
