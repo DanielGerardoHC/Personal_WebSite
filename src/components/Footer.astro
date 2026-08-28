@@ -23,8 +23,9 @@ const socialLinks = [
           Daniel<span class="brand-accent">Hernandez</span>
         </a>
         <p class="footer-tagline">
-          Arquitecto de Convergencia IT/OT enfocado en conectar el mundo
-          industrial con soluciones de software modernas.
+          Senior Cybersecurity Engineer y Full Stack Developer. Auditor Interno
+          ISO/IEC 27001:2022, enfocado en proteger infraestructura crítica y
+          construir software seguro.
         </p>
       </div>
 
@@ -62,7 +63,7 @@ const socialLinks = [
             projects.map((p) => (
               <li>
                 <a
-                  href={p.repoUrl || "#"}
+                  href={p.liveUrl || p.repoUrl || "#"}
                   target="_blank"
                   rel="noopener noreferrer"
                 >

@@ -4,6 +4,8 @@ export interface Project {
   description: string;
   longDescription?: string;
   tags: string[];
+  /** Icono/logo del proyecto, mostrado junto al título */
+  icon?: string;
   images: string[];
   videoUrl?: string;
   liveUrl?: string;
@@ -37,13 +39,26 @@ export const projects: Project[] = [
     description:
       "Firewall de Próxima Generación (NGFW) basado en zonas, construido sobre Debian 13 y escrito en Go para ofrecer control perimetral avanzado con procesamiento concurrente de alta velocidad.",
     longDescription:
-      "SentinelOS es un NGFW diseñado para entornos de red críticos. Desarrollado sobre la arquitectura de Debian 13 y programado íntegramente en Go, aprovecha la concurrencia nativa del lenguaje para garantizar tiempos de respuesta mínimos en la inspección de tráfico. Integra Suricata IPS para detección y prevención de intrusiones en tiempo real, proporcionando seguridad perimetral, monitorización activa y gestión eficiente del tráfico de red.",
-    tags: ["Go", "Debian 13", "Suricata IPS", "NGFW", "Networking", "Linux"],
+      "SentinelOS es un NGFW diseñado para entornos de red críticos. Desarrollado sobre la arquitectura de Debian 13 y programado íntegramente en Go, aprovecha la concurrencia nativa del lenguaje para garantizar tiempos de respuesta mínimos en la inspección de tráfico. Integra Suricata IPS para detección y prevención de intrusiones en tiempo real, proporcionando seguridad perimetral, monitorización activa y gestión eficiente del tráfico de red. Está especializado en el análisis de redes SCADA industriales, el análisis de paquetes y la seguridad de PLC en entornos de producción.",
+    tags: ["Go", "Debian 13", "Suricata IPS", "NGFW", "SCADA / OT", "Networking", "Linux"],
     images: [
     ],
     liveUrl: "https://sentinelos.sentinelapps.net/",
     repoUrl: "#",
     docsUrl: "https://sentinelos.sentinelapps.net/",
+    featured: true,
+  },
+  {
+    id: "mascota-segura-sv",
+    title: "MascotaSeguraSV",
+    description:
+      "Aplicación móvil nativa para Android que ayuda a encontrar mascotas perdidas con el apoyo de una comunidad conectada, mediante reportes con ubicación GPS exacta.",
+    longDescription:
+      "MascotaSeguraSV es la aplicación diseñada para ayudarte a encontrar a tu mascota perdida con el apoyo de toda una comunidad conectada. Registra a tus mascotas, reporta extravíos con ubicación GPS exacta y permite que otros usuarios te notifiquen si la ven. Desarrollada nativamente para Android en Java, incorpora generación de volantes, reporte de avistamientos y seguimiento en tiempo real de la ubicación mediante dispositivos IoT (GPS) con cobertura global. Ganadora de la Expo Mobile Solutions de ITCA-FEPADE y publicada en Google Play Store.",
+    tags: ["Java", "Android", "GPS / IoT", "Google Maps", "Play Store"],
+    icon: "/images/MascotaSeguraSv-icon.png",
+    images: ["/images/MascotaSeguraSv-playstore.png"],
+    liveUrl: "https://mascotasegurasv.sentinelapps.net/",
     featured: true,
   },
   // ───────────────────────────────────────────

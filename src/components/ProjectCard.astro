@@ -18,6 +18,8 @@ const tagIconMap: Record<string, string> = {
   "Go": "devicon-go-plain",
   "Debian 13": "devicon-debian-plain",
   "Linux": "devicon-linux-plain",
+  "Java": "devicon-java-plain",
+  "Android": "devicon-android-plain",
 };
 ---
 
@@ -79,7 +81,19 @@ const tagIconMap: Record<string, string> = {
       ))}
     </div>
 
-    <h3 class="project-title">{project.title}</h3>
+    <div class="project-heading">
+      {project.icon && (
+        <img
+          src={`${base}${project.icon}`}
+          alt={`Icono de ${project.title}`}
+          class="project-icon"
+          width="48"
+          height="48"
+          loading="lazy"
+        />
+      )}
+      <h3 class="project-title">{project.title}</h3>
+    </div>
     <p class="project-description">{project.longDescription || project.description}</p>
 
     <!-- Video embed -->
@@ -262,6 +276,28 @@ const tagIconMap: Record<string, string> = {
     font-size: 1rem;
     color: var(--ink);
     margin-right: 0.1rem;
+  }
+
+  .project-heading {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+  }
+
+  .project-icon {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    object-fit: contain;
+    background: white;
+    border: 1px solid var(--sand-dark);
+    border-radius: var(--radius-md);
+    padding: 4px;
+    transition: transform var(--transition-base);
+  }
+
+  .project-card:hover .project-icon {
+    transform: scale(1.06);
   }
 
   .project-title {
